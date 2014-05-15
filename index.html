@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .redstar
+        {
+            color: red;
+        }
+        /*style.css*/
+        .gridStyle {
+            border: 1px solid rgb(212,212,212);
+            width: 600px;
+            height: 300px
+        }
+        .ng-invalid {
+            border-color: #ee5f5b !important;
+        }
+
+    </style>
+    <link rel="stylesheet" type="text/css" href="http://angular-ui.github.com/ng-grid/css/ng-grid.css" />
+
+
+
+
+</head>
+<body ng-controller="AnchorCTRL">
+<span class="redstar">地錨邊號及尺寸：</span><br/>
+<font class="font01">地錨支數:</font>
+<input type="number" name="txtAnchorNum"  ng-model="num" min="1" max="99"/>&nbsp;
+<font class="font01">區:</font>
+<input type="text" name="txtAnchorArea"  ng-model="area" ng-maxlength="1"  ng-pattern="word1" />&nbsp;
+<font class="font01">階:</font>
+<input type="number" name="txtAnchorLevel"  ng-model="level" min="1" max="9"/>&nbsp;
+<font class="font01">排:</font>
+<input type="text" name="txtAnchorRow"  ng-model="row" ng-maxlength="2" ng-pattern="word2" />&nbsp;
+<font class="font01">自由段:</font>
+<input type="number" name="txtFree"  ng-model="free" min="0"/>&nbsp;
+<font class="font01">錨碇段:</font>
+<input type="number" name="txtHeader"  ng-model="header" min="0"/>&nbsp;
+<font class="font01">設計荷重:</font>
+<input type="number" name="txtWeight"  ng-model="weight" min="0"/>&nbsp;
+<input type="button" id="addAnchor" name="addAnchor" value="新增" ng-click="AddAnchorList()"/>
+<div class="gridStyle" ng-style="mystyle" ng-grid="gridOptions"></div>
+
+<div id="mycontent">{{mAnchorList|json}}</div>
+
+<!--<script src="js/angular.min.js"></script>-->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+<script src="js/ng-grid-2.0.11.min.js"></script>
+<!--<script type="text/javascript" src="http://angular-ui.github.com/ng-grid/lib/ng-grid.debug.js"></script>-->
+<script src="js/app.js"></script>
+</body>
+</html>
