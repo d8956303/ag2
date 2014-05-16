@@ -12,10 +12,14 @@
         .gridStyle {
             border: 1px solid rgb(212,212,212);
             width: 600px;
-            height: 300px
+            height: 200px
         }
         .ng-invalid {
             border-color: #ee5f5b !important;
+        }
+        .ngCellText,.ngHeaderText
+        {
+            text-align:center;
         }
 
     </style>
@@ -27,14 +31,17 @@
 </head>
 <body ng-controller="AnchorCTRL">
 <span class="redstar">地錨邊號及尺寸：</span><br/>
-<font class="font01">地錨支數:</font>
-<input type="number" name="txtAnchorNum"  ng-model="num" min="1" max="99"/>&nbsp;
+<font class="font01">面版型式:</font>
+<select ng-model="panelType" ng-options="item.name for item in panelData"></select>
 <font class="font01">區:</font>
 <input type="text" name="txtAnchorArea"  ng-model="area" ng-maxlength="1"  ng-pattern="word1" />&nbsp;
 <font class="font01">階:</font>
 <input type="number" name="txtAnchorLevel"  ng-model="level" min="1" max="9"/>&nbsp;
 <font class="font01">排:</font>
 <input type="text" name="txtAnchorRow"  ng-model="row" ng-maxlength="2" ng-pattern="word2" />&nbsp;
+<font class="font01">地錨支數:</font>
+<input type="number" name="txtAnchorNum"  ng-model="num" min="1" max="99"/>&nbsp;
+<br/>
 <font class="font01">自由段:</font>
 <input type="number" name="txtFree"  ng-model="free" min="0"/>&nbsp;
 <font class="font01">錨碇段:</font>
